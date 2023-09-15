@@ -1,45 +1,52 @@
 import { FiDollarSign } from 'react-icons/fi';
 import { HiOutlineBookOpen } from 'react-icons/hi';
 import Cart from '../Cart/Cart';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+    const [allCourses, setAllCourses] =useState([]);
     useEffect(()=>{
         fetch("./data.json")
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setAllCourses(data))
     },[])
+    console.log(allCourses)
     return (
-        <div className='flex justify-center'>
-            <div className='w-2/3 bg-slate-300'>
-            
-            <div className="w-72 mx-auto p-2 shadow-lg rounded-lg shadow-black">
+        <div className='w-5/6 mx-auto flex justify-center gap-4'>
+            <div className='grid md:grid-cols-3 w-2/3 gap-4'>
+            {
+                allCourses.map(course =>(
+                <div key={course.id} className="card w-[280px] mx-auto p-2 shadow-lg rounded-lg shadow-black">
                 <div>
-                    <img className="my-3" src="https://i.ibb.co/ZSHPLrL/Rectangle-2-2.png" alt="" />
-                    <h2 className="text-lg font-semibold my-3">Introduction to C Programming</h2>
-                    <p className="text-sm text-[1C1B1B]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <img className="my-3" src={course.image} alt="" />
+                    <h2 className="text-lg font-semibold my-3">{course.title}</h2>
+                    <p className="text-sm text-[1C1B1B]">{course.description}</p>
                 </div>
                 <div className='flex justify-between items-center my-3'>
-                    <div className='flex justify-between items-center gap-3 '>
+                    <div className='flex justify-between items-center gap-2 '>
                         <p><FiDollarSign/></p>
-                        <p>Price : 15000</p>
+                        <p>Price : {course.Price}</p>
 
                     </div>
-                    <div className='flex justify-between items-center gap-3'>
+                    <div className='flex justify-between items-center gap-2'>
                          <p><HiOutlineBookOpen/></p>
-                         <p>Credit : 10hr</p>
+                         <p>Credit : {course.Credit}hr</p>
                     </div>
                 </div>
                 <div className='text-center'>
                    <button className="btn bg-[#2F80ED] text-white rounded-lg px-24 py-1">Select</button>
                 </div>
-            </div>
+            </div>))
+            }
+            
 
         </div>
+
         <div className='w-1/3 bg-red-400'>
             <Cart></Cart>
         </div>
-        </div>
+
+    </div>
     );
 };
 
