@@ -1,8 +1,14 @@
 import { FiDollarSign } from 'react-icons/fi';
 import { HiOutlineBookOpen } from 'react-icons/hi';
 import Cart from '../Cart/Cart';
+import { useEffect } from 'react';
 
 const Home = () => {
+    useEffect(()=>{
+        fetch("./data.json")
+        .then(res => res.json())
+        .then(data => console.log(data))
+    },[])
     return (
         <div className='flex justify-center'>
             <div className='w-2/3 bg-slate-300'>
