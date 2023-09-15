@@ -1,0 +1,74 @@
+[
+    {
+      "id": 1,
+      "title": "Introduction to C Programming",
+      "image": "https://i.ibb.co/ZSHPLrL/Rectangle-2-2.png",
+      "description": "Get started with C programming basics and build a strong coding foundation in this introductory course.",
+      "Price": 15000,
+      "Credit": 1
+    },
+    {
+      "id": 2,
+      "title": "Introduction to Algorithms",
+      "image": "https://i.ibb.co/VJrg3WT/Rectangle-2-3.png",
+      "description": "Unlock the world of algorithms in this introductory course, mastering problem-solving with logic and efficiency.",
+      "Price": 25000,
+      "Credit": 2
+    },
+    {
+      "id": 3,
+      "title": "Introduction to C++ for DSA",
+      "image": "https://i.ibb.co/NTj9Czk/Rectangle-2-4.png",
+      "description": "Explore C++ for Data Structures and Algorithms (DSA) with this introductory course, enhancing your coding skills.",
+      "Price": 10000,
+      "Credit": 10
+    },
+    {
+      "id": 4,
+      "title": "Basic Data Structures",
+      "image": "https://i.ibb.co/MptzFKK/Rectangle-3.png",
+      "description": "Learn essential data structures in this basic course, building a strong foundation for programming.",
+      "Price": 35000,
+      "Credit": 5
+    },
+    {
+      "id": 5,
+      "title": "Introduction to OOP Python",
+      "image": "https://i.ibb.co/Dtb85tN/Rectangle-2.png",
+      "description": "Discover Object-Oriented Programming (OOP) in Python with this introductory course, mastering code organization.",
+      "Price": 19000,
+      "Credit": 5
+    },
+    {
+      "id": 6,
+      "title": "Software Engineering",
+      "image": "https://i.ibb.co/3RKFsT7/Rectangle-2-5.png",
+      "description": "Dive into the world of Software Engineering, mastering the art of building robust and scalable software systems.",
+      "Price": 23000,
+      "Credit": 2
+    },
+    {
+      "id": 7,
+      "title": "AWS, Cloud Computing",
+      "image": "https://i.ibb.co/f8tFTdh/Rectangle-3-1.png",
+      "description": "Explore AWS and Cloud Computing, unlocking the power of scalable and flexible cloud solutions.",
+      "Price": 35000,
+      "Credit": 5
+    },
+    {
+      "id": 8,
+      "title": "Database (MySQL)",
+      "image": "https://i.ibb.co/Sdv55nz/Rectangle-2-1.png",
+      "description": "Master MySQL Database Management with this comprehensive course, perfect for organizing and handling data.",
+      "Price": 19000,
+      "Credit": 5
+    },
+    {
+      "id": 9,
+      "title": "Problem-Solving Part",
+      "image": "https://i.ibb.co/dgBd97t/Rectangle-2-6.png",
+      "description": "Enhance your problem-solving skills with this course, equipping you with effective strategies and techniques.",
+      "Price": 23000,
+      "Credit": 2
+    }
+  ]
