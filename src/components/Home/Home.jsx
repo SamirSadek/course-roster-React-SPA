@@ -5,12 +5,20 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
     const [allCourses, setAllCourses] =useState([]);
+    const [selectedCourse, setSelectedCourse] =useState([]);
+
     useEffect(()=>{
         fetch("./data.json")
         .then(res => res.json())
         .then(data => setAllCourses(data))
     },[])
-    console.log(allCourses)
+
+    const handleSelectedCourse= (course)=>{
+        setSelectedCourse([...selectedCourse,course]);
+
+    }
+    console.log(selectedCourse);
+    // console.log(allCourses);
     return (
         <div className='w-5/6 mx-auto flex justify-center gap-4'>
             <div className='grid md:grid-cols-3 w-2/3 gap-4'>
@@ -34,7 +42,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='text-center'>
-                   <button className="btn bg-[#2F80ED] text-white rounded-lg px-24 py-1">Select</button>
+                   <button onClick={()=>handleSelectedCourse(course)} className="btn bg-[#2F80ED] text-white rounded-lg px-24 py-1">Select</button>
                 </div>
             </div>))
             }
@@ -43,7 +51,7 @@ const Home = () => {
         </div>
 
         <div className='w-1/3 bg-red-400'>
-            <Cart></Cart>
+            <Cart selectedCourse={selectedCourse}></Cart>
         </div>
 
     </div>
