@@ -37,7 +37,7 @@ const Home = () => {
             })
             const totalRemainingCredit = 20 - totalCreditHour
 
-            if(totalRemainingCredit <=0 || totalCreditHour >20){
+            if(totalRemainingCredit <0 || totalCreditHour >20){
                 notify2();
             }else{
                 setTotPrice(totalPrice);
@@ -53,8 +53,8 @@ const Home = () => {
     }
    
     return (
-        <div className='w-5/6 mx-auto flex justify-center gap-4'>
-            <div className='grid md:grid-cols-3 w-2/3 gap-4'>
+        <div className='max-w-7xl mx-auto flex md:flex-row mb-8 gap-5'>
+            <div className='w-3/4 grid md:grid-cols-2 lg:grid-cols-3  gap-5'>
             {
                 allCourses.map((course) =>(
                 <div key={course.id} className="card w-[280px] mx-auto p-2 shadow-lg rounded-lg shadow-black">
@@ -75,7 +75,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='text-center'>
-                   <button onClick={()=>handleSelectedCourse(course)} className="btn bg-[#2F80ED] text-white rounded-lg px-24 py-1">Select</button>
+                   <button onClick={()=>handleSelectedCourse(course)} className="btn bg-[#2F80ED] text-white font-semibold rounded-lg px-24 py-1  mb-3">Select</button>
                 </div>
             </div>))
             }
@@ -83,7 +83,7 @@ const Home = () => {
             <ToastContainer />
         </div>
 
-        <div className='w-1/3 bg-red-400'>
+        <div className='w-1/4'>
             <Cart selectedCourse={selectedCourse} totPrice={totPrice} totCredit={totCredit} remCredit={remCredit}></Cart>
         </div>
 
