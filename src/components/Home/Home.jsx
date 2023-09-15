@@ -3,9 +3,19 @@ import { HiOutlineBookOpen } from 'react-icons/hi';
 import Cart from '../Cart/Cart';
 import { useEffect, useState } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+    const notify1 = () => toast("Already Selected this Course");
+    const notify2 = () => toast("Your Limit Exceeded");
+
 const Home = () => {
     const [allCourses, setAllCourses] =useState([]);
     const [selectedCourse, setSelectedCourse] =useState([]);
+    const [totPrice, setTotPrice] = useState(0);
+    const [totCredit, setTotCredit] = useState(0);
+    const [remCredit, setRemCredit] = useState(20);
 
     useEffect(()=>{
         fetch("./data.json")
@@ -14,16 +24,39 @@ const Home = () => {
     },[])
 
     const handleSelectedCourse= (course)=>{
-        setSelectedCourse([...selectedCourse,course]);
+        const isSelected = selectedCourse.find((item)=> item.id == course.id)
+        let totalPrice = course.Price;
+        let totalCreditHour = course.Credit;
+        if(isSelected){
+            notify1();
+        }else{
+            selectedCourse.forEach((item)=>{
+                totalPrice = totalPrice + item.Price;
+                totalCreditHour = totalCreditHour + item.Credit;
+
+            })
+            const totalRemainingCredit = 20 - totalCreditHour
+
+            if(totalRemainingCredit <=0 || totalCreditHour >20){
+                notify2();
+            }else{
+                setTotPrice(totalPrice);
+            setTotCredit(totalCreditHour);
+            setRemCredit(totalRemainingCredit);
+            setSelectedCourse([...selectedCourse,course]);
+            }
+
+            
+        }
+        
 
     }
-    console.log(selectedCourse);
-    // console.log(allCourses);
+   
     return (
         <div className='w-5/6 mx-auto flex justify-center gap-4'>
             <div className='grid md:grid-cols-3 w-2/3 gap-4'>
             {
-                allCourses.map(course =>(
+                allCourses.map((course) =>(
                 <div key={course.id} className="card w-[280px] mx-auto p-2 shadow-lg rounded-lg shadow-black">
                 <div>
                     <img className="my-3" src={course.image} alt="" />
@@ -47,14 +80,16 @@ const Home = () => {
             </div>))
             }
             
-
+            <ToastContainer />
         </div>
 
         <div className='w-1/3 bg-red-400'>
-            <Cart selectedCourse={selectedCourse}></Cart>
+            <Cart selectedCourse={selectedCourse} totPrice={totPrice} totCredit={totCredit} remCredit={remCredit}></Cart>
         </div>
 
+
     </div>
+    
     );
 };
 
