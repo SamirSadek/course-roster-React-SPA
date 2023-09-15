@@ -1,7 +1,7 @@
 
 # Course-Registration
 
-This Project is Assignment of Programming Hero Web Development Course . Used Technologies : TailwindCSS, ReactJS
+This Project is an Assignment for Programming Hero Web Development Course . Used Technologies : TailwindCSS, ReactJS
 
 ## Features
 

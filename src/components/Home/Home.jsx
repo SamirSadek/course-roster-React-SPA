@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
     const notify1 = () => toast("Already Selected this Course");
-    const notify2 = () => toast("Your Limit Exceeded");
+    const notify2 = () => toast("Your Credit Limit Exceeded");
 
 const Home = () => {
     const [allCourses, setAllCourses] =useState([]);
@@ -53,8 +53,8 @@ const Home = () => {
     }
    
     return (
-        <div className='max-w-7xl mx-auto flex md:flex-row mb-8 gap-5'>
-            <div className='w-3/4 grid md:grid-cols-2 lg:grid-cols-3  gap-5'>
+        <div className='max-w-7xl mx-auto flex flex-col lg:flex-row mb-8 gap-5'>
+        <div className='w-3/4 mx-auto grid md:grid-cols-2 lg:grid-cols-3  gap-16'>
             {
                 allCourses.map((course) =>(
                 <div key={course.id} className="card w-[280px] mx-auto p-2 shadow-lg rounded-lg shadow-black">
@@ -83,7 +83,7 @@ const Home = () => {
             <ToastContainer />
         </div>
 
-        <div className='w-1/4'>
+        <div className='sm:m-10 lg:m-0 lg:w-1/4'>
             <Cart selectedCourse={selectedCourse} totPrice={totPrice} totCredit={totCredit} remCredit={remCredit}></Cart>
         </div>
 
